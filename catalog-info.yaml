@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-templates
+  annotations:
+    github.com/project-slug: CYBERBUGJR/backstage-templates
+spec:
+  type: other
+  lifecycle: unknown
+  owner: test
