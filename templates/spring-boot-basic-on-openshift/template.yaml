@@ -8,11 +8,8 @@ metadata:
     - spring-boot
     - java
     - maven
-    - tekton
     - renovate
-    - sonarqube
     - openshift
-    - argocd
 spec:
   owner: piomin
   system: microservices
@@ -154,23 +151,6 @@ spec:
 #        branch: 'master'
 #        visibility: 'public'
 
-    - id: create-webhook
-      name: Create GitHub Webhook
-      action: github:webhook
-      input:
-        repoUrl: github.com?repo=${{ parameters.appName }}&owner=${{ parameters.orgName }}
-        webhookUrl: http://el-${{ parameters.appName }}-${{ parameters.namespace }}.${{ parameters.clusterDomain }}
-        contentType: 'json'
-        
-    - id: create-argocd-resources
-      name: Create ArgoCD Resources
-      action: argocd:create-resources
-      input:
-        appName: ${{ parameters.appName }}
-        argoInstance: main
-        namespace: ${{ parameters.namespace }}
-        repoUrl: https://github.com/${{ parameters.orgName }}/${{ parameters.appName }}-config.git
-        path: 'manifests'
 
   output:
     links:
