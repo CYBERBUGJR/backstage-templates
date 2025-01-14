@@ -16,7 +16,7 @@ spec:
   type: service
 
   parameters:
-    - title: Provide information about the new component
+    - title: ✏️ Provide information about the new component
       required:
         - orgName
         - appName
@@ -69,11 +69,11 @@ spec:
         registryUrl:
           title: Registry URL
           type: string
-          default: image-registry.openshift-image-registry.svc:5000
+          default: OCSIN-REG
         clusterDomain:
           title: OpenShift Cluster Domain
           type: string
-          default: apps.piomin.eastus.aroapp.io
+          default: apps.test.local
   steps:
     - id: sourceCodeTemplate
       name: Generating the Source Code Component
@@ -90,7 +90,7 @@ spec:
           namespace: ${{ parameters.namespace }}
 
     - id: publish
-      name: Publishing to the Source Code Repository
+      name: 🐙 Publishing to the Source Code Repository (Main)
       action: publish:github
       input:
         allowedHosts: ['github.com']
@@ -101,14 +101,14 @@ spec:
         repoVisibility: public
 
     - id: register
-      name: Registering the Catalog Info Component
+      name: 📚 Registering the Catalog Info Component
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: /catalog-info.yaml
 
     - id: configCodeTemplate
-      name: Generating the Config Code Component
+      name: 🖥️ Generating the Config Code Component
       action: fetch:template
       input:
         url: ../../skeletons/argocd
@@ -121,7 +121,7 @@ spec:
         targetPath: ./gitops
 
     - id: publish
-      name: Publishing to the Config Code Repository
+      name: 🐙 Publishing to the Config Code Repository
       action: publish:github
       input:
         allowedHosts: ['github.com']
