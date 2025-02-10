@@ -11,7 +11,7 @@ metadata:
     - renovate
     - openshift
 spec:
-  owner: piomin
+  owner: cyberbugjr
   system: microservices
   type: service
 
