@@ -33,27 +33,27 @@ spec:
         orgName:
           title: Organization name
           type: string
-          default: piomin
+          default: ocsin
         appName:
           title: App name
           type: string
-          default: sample-spring-boot-app-openshift
+          default: SprintBootX-App
         domainName:
           title: Name of the domain object
           type: string
-          default: Person
+          default: Benjamin Calvet
         repoBranchName:
           title: Name of the branch in the Git repository
           type: string
-          default: master
+          default: main
         groupId:
           title: Maven Group ID
           type: string
-          default: pl.piomin.services
+          default: org.ocsin.proj
         javaPackage:
           title: Java package directory
           type: string
-          default: pl/piomin/services
+          default: org/ocsin/services
         apiPath:
           title: REST API path
           type: string
@@ -61,7 +61,7 @@ spec:
         namespace:
           title: The target namespace on Kubernetes
           type: string
-          default: demo
+          default: app-4321-bcalvet
         description:
           title: Description
           type: string
@@ -69,11 +69,11 @@ spec:
         registryUrl:
           title: Registry URL
           type: string
-          default: OCSIN-REG
+          default: TO-REPLACE-OCSIN-REG
         clusterDomain:
           title: OpenShift Cluster Domain
           type: string
-          default: apps.test.local
+          default: soca-lab-1.lbdev.test.local
   steps:
     - id: sourceCodeTemplate
       name: Generating the Source Code Component
